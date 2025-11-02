@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pontual Licenças</title>
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="logo">
+    <!-- Logo -->
+    <img src="./img/logo.png" alt="Pontual Licenças">
+    <h1>Selecione uma opção</h1>
+  </header>
+
+  <nav class="buttons">
+    <!-- Botões -->
+    <button class="btn" aria-label="Cadastro do Cliente" onclick="handleButtonClick(this)">
+        <i class="fa-solid fa-user" style="margin-right: 8px;"></i>  
+          Cadastro do Cliente
+    </button>
+    <button class="btn" onclick="handleButtonClick(this, 'pages/mapa.html')" aria-label="Mapa de empresas regularizadas">
+        <i class="fa-solid fa-map" style="margin-right: 8px;"></i>
+          Mapa de empresas regularizadas
+    </button>
+    <button class="btn" aria-label="Cadastro Empresarial" onclick="handleButtonClick(this)">
+        <i class="fa-solid fa-building" style="margin-right: 8px;"></i>  
+          Cadastro Empresarial
+    </button>
+  </nav>
+
+  <script>
+    // Efeito de clique suave nos botões
+    function handleButtonClick(button, redirectUrl = null) {
+      // Efeito visual de clique
+      button.classList.add('loading');
+      
+      // Simula um pequeno delay para a animação
+      setTimeout(() => {
+        button.classList.remove('loading');
+        
+        if (redirectUrl) {
+          // Redireciona para a página
+          window.location.href = redirectUrl;
+        } else {
+          // Ação para outros botões (pode ser personalizada)
+          console.log('Botão clicado:', button.textContent.trim());
+        }
+      }, 800);
+    }
+
+    // Efeito de digitação no título (opcional)
+    document.addEventListener('DOMContentLoaded', function() {
+      const title = document.querySelector('.logo h1');
+      const originalText = title.textContent;
+      title.textContent = '';
+      
+      let i = 0;
+      function typeWriter() {
+        if (i < originalText.length) {
+          title.textContent += originalText.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50);
+        }
+      }
+      
+      // Inicia o efeito de digitação após um delay
+      setTimeout(typeWriter, 1000);
+    });
+  </script>
+</body>
+</html>

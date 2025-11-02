@@ -1,0 +1,46 @@
+/* Estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #1e293b;
+  color: #fff;
+}
+
+body.index-page {
+  overflow: hidden; /* Remove as barras de rolagem apenas no index.html */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Ajustes globais para responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 5px;
+  }
+}
